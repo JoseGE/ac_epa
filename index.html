@@ -11,7 +11,11 @@
   <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
   <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
 </head>
-
+<style>
+.hide{
+  diplay:none;
+}
+</style>
 <body>
   <a-scene>
     <a-assets>
@@ -27,7 +31,7 @@
       <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
       <img id="sechelt" crossorigin="anonymous"
         src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-
+      <img id="caca" class="hide" crossorigin="anonymous" src="./ac.jpg">
       <!-- Image link template to be reused. -->
       <script id="link" type="text/html">
           <a-entity class="link"
@@ -48,7 +52,7 @@
     </a-sky>
 
     <!-- Image links. -->
-    <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+    <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4">
       <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
       <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
@@ -66,3 +70,9 @@
 </body>
 
 </html>
+
+<script>
+  document.querySelector('#cubes').addEventListener('mouseenter',function(){
+    document.querySelector('#caca').removeAttribute('class');
+  })
+</script>
